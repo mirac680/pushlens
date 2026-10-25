@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pushlens"
+dynamic = ["version"]
+description = "A local-first preflight tool for publishing a project to GitHub without Git."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "PushLens contributors" }]
+keywords = ["github", "github-upload", "gitless", "beginner-friendly", "local-first", "offline", "privacy", "secrets", "open-source", "preflight"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Environment :: Win32 (MS Windows)",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development",
+  "Topic :: Security",
+]
+dependencies = []
+
+[project.scripts]
+pushlens = "pushlens.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = { attr = "pushlens._version.__version__" }
+
+[tool.setuptools.package-data]
+pushlens = ["py.typed"]
